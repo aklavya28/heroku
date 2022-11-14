@@ -1,0 +1,33 @@
+
+<div class="container mt-4">
+    <h1>New Post</h1>
+
+            <%= @blog.errors.any? %>
+    <% if @blog.errors.any?  %>
+
+
+        <h2>Following errors are prevented the blog from being saved</h2>
+
+        <ul>
+            <% @blog.errors.full_messages.each do |msg| %>
+
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+
+    <%=  form_with scope: :blog, url: blogs_path, local: true do |f| %>
+        <div>
+            <label><%= f.label :title %></label>
+            <div><%= f.text_field :title %></div>
+        </div>
+            <label><%= f.label :description %></label>
+            <div><%= f.text_area :description %></div>
+        </div>
+        <div>
+            <%= f.submit %>
+        </div>
+
+    <% end %>
+</div>
