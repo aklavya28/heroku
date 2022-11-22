@@ -1,0 +1,33 @@
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    <% @blogs.each do |blog| %>
+    <tr>
+        <td><%= blog.id %></td>
+        <td><%= blog.title %></td>
+        <td><%= blog.description %></td>
+        <td>
+
+
+            <%= current_user.admin?%>
+            <%= link_to "Show", blog_path(blog)%>
+            <% if logged_in? &&  (blog.user == current_user || current_user.admin?) %>
+            <%= link_to "edit", edit_blog_path(blog)%>
+            <%= link_to "Delete", blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+    <% if will_paginate  @blogs %>
+
+    <tfoot>
+        <tr>
+            <td colspan="4"><%= will_paginate @blogs %></td>
+        </tr>
+    </tfoot>
+    <% end %>
+</table>

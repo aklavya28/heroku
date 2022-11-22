@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2>Blogers</h2>
+    <% @user.each do |u|  %>
+        <div class="u_info">
+            <div>
+                <div><%= gravatar_for u, size: 150%></div>
+                <div><%= u.username %>, @:. <%= u.email %></div>
+                <div>Count: <%= u.blogs.count %></div>
+            </div>
+            <div>
+                <%= link_to "View Profile", u , class: "btn btn-info"%>
+            </div>
+
+        </div>
+
+    <%end %>
+
+
+</div>
+

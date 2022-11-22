@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>User Profile</h2>
+    <div class="detail">
+        <%= gravatar_for @user, size: 80 %>
+        <div>
+            <div>
+                <div>Username </div>
+                <div><%= @user.username %></div>
+            </div>
+            <div>
+                <div>Email </div>
+                <div><%= @user.email %></div>
+            </div>
+        </div>
+    </div>
+    <div class="usr_artile">
+        <%= render "blogs/blogs" %>
+    </div>
+
+
+</div>

@@ -1,3 +1,31 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.detail {
+    display: flex;
+    gap: 21px;
+    align-items: center;
+}
+
+.detail>div>div {
+    display: flex;
+    gap: 23px;
+    font-size: 14px;
+}
+
+
+
+.detail>div>div>div:first-child {
+    width: 92px;
+    position: relative;
+    font-weight: normal;
+    font-size: 14px;
+    color: #959595;
+}
+
+.detail>div>div>div:first-child:after {
+    content: ":";
+    position: absolute;
+    right: 5px;
+}

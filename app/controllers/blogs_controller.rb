@@ -1,8 +1,9 @@
 
 class BlogsController < ApplicationController
+
   before_action :set_blog , only: [:show, :edit, :update, :destory]
   def index
-      @blogs = Blog.all
+      @blogs = Blog.paginate(:page => params[:page], :per_page => 10)
       # return render json: @blogs
   end
 
@@ -14,11 +15,13 @@ class BlogsController < ApplicationController
     @blog = Blog.new
   end
   def create
+    # return render json: current_user
+
     @blog = Blog.new(blog_params)
-    if
+    @blog.user_id = current_user.id
+    if @blog.save
       flash[:notice] ="Post saved Successfully"
-      @blog.save
-      redirect_to blog_path(@blog)
+      redirect_to blogs_path(@blog)
     else
       render 'new'
     end
@@ -30,6 +33,8 @@ class BlogsController < ApplicationController
 
     if
       @blog.update(blog_params)
+      @blog.user_id = current_user.id
+      @blog.save
       flash[:notice] = "Post updated successfully."
       redirect_to @blog
       else
@@ -49,7 +54,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
   def blog_params
-    params.require(:blog).permit(:title, :description)
+    params.require(:blog).permit(:title, :description, :user_id)
   end
 
 

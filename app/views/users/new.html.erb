@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div class="login_container">
+
+        <h2>Login to Blog</h2>
+
+     <% if @user.errors.any?  %>
+
+
+        <h2>Following errors are prevented the blog from being saved</h2>
+
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <%= render "form" %>
+
+
+
+        <div class="inner">
+
+        </div>
+           <div class="mb-3">
+            <%= link_to '[ Cancel and return to articles listing ]', blogs_path, class: "text-info" %>
+            </div>
+    </div>
+</div>
