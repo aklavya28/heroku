@@ -1,0 +1,12 @@
+<div class="container">
+    <%= link_to "Add New", new_testing_path, class:"btn btn-info" %>
+
+    <div>
+        <%@testing.each do |t|%>
+            <h2><%= t.title %></h2>
+            <p><%= t.body %></p>
+         <%= link_to "text", t %>
+        <% end %>
+    </div>
+
+</div>

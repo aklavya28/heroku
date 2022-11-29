@@ -1,7 +1,9 @@
 <div class="container mt-4">
 
+<%if logged_in? %>
 <%= link_to "Create new blog", new_blog_path, class: "btn btn-sm btn-info" %>
 <%= request.original_url  %>
+<%end %>
 <%= render "blogs"  %>
 
 </div>

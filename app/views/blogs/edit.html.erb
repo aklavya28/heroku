@@ -10,19 +10,8 @@
             <% end %>
         </ul>
     <% end %>
-    <%=  form_with(model: @blog, local: true) do |f| %>
-        <div>
-            <label><%= f.label :title %></label>
-            <div><%= f.text_field :title, class: "form-control" %></div>
-        </div>
-        <div>
-            <label><%= f.label :description %></label>
-            <div><%= f.text_area :description , class: "form-control"  %></div>
-        </div>
-        <div class="mt-2">
-            <%= f.submit class:"btn btn-info" %>
-        </div>
-    <% end %>
+    <%= render "form" %>
+
     <%= link_to "Back to Blog", blogs_path %>
 </div>
 

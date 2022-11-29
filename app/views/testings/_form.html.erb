@@ -1,0 +1,21 @@
+
+    <% if @testing.errors.any? %>
+        <ul>
+    <% @testing.errors.full_messages.each do |m| %>
+            <li> <%= m %></li>
+    <% end %>
+        </ul>
+    <% end %>
+
+    <%= form_for(@testing, local: true) do |f| %>
+
+        <div>
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div>
+            <%= f.label :body, "Description" %>
+            <%= f.text_area  :body, class: "form-control" %>
+        </div>
+        <div class="mt-3"><%= f.submit "Submit", class:"btn btn-info" %></div>
+    <% end %>
+

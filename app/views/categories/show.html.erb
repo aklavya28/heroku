@@ -1,0 +1,11 @@
+<div class="container">
+    <h2 class="heading_siple_cat"><%= @category.name %></h2>
+    <div class="blog_rendering">
+        <% @category.blogs.each do |b|%>
+            <div>
+                <%= link_to b.title, blog_path(b) %>
+                <p><%= b.description[0..10] %> ... <%= link_to "read more", blog_path(b) %></p>
+            </div>
+        <% end%>
+    </div>
+</div>

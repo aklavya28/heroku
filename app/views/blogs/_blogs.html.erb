@@ -13,7 +13,7 @@
         <td>
 
 
-            <%= current_user.admin?%>
+
             <%= link_to "Show", blog_path(blog)%>
             <% if logged_in? &&  (blog.user == current_user || current_user.admin?) %>
             <%= link_to "edit", edit_blog_path(blog)%>

@@ -14,3 +14,68 @@
  *= require_self
  */
  @import "bootstrap/scss/bootstrap";
+ .categories {
+    display: flex;
+    gap: 12px;
+}
+
+.categories>a {
+    background: #878787;
+    padding: 7px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    transition: all ease .5s;
+}
+
+.categories>a:hover {
+    background: #04a8c5;
+    transform: translateX(6px);
+}
+.blog_rendering {
+    display: flex;
+    flex-flow: column;
+    gap: 16px;
+}
+
+.blog_rendering>div {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background: white;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 0 11px #0c0c0c3d;
+    text-align: center;
+    max-width: 1030px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.blog_rendering>div>a {
+    font-size: 34px;
+    text-transform: capitalize;
+    color: #084298;
+    font-weight: normal;
+    transition: all ease .5s;
+}
+
+.blog_rendering>div>a:hover {
+    background: none;
+    color: #198754;
+}
+
+.blog_rendering>div>p a {
+    color: #0d6efd;
+    transition: all ease .6s;
+}
+
+.blog_rendering>div>p a:hover {
+    background: none;
+}
+.heading_siple_cat {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 25px;
+}

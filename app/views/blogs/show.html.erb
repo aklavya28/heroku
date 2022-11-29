@@ -7,8 +7,12 @@
     <p><strong>Title: </strong> <%= @blog.title  %></p>
     <p><strong>Description: </strong> <%= @blog.description  %></p>
     <p>Author: <%= @blog.user.username %> </p>
+    <div class="categories">
+        <% @blog.categories.each do |c|%>
+             <%= link_to c.name , category_path(c) %>
+        <% end %>
+    </div>
     <hr />
-
     <% if logged_in? && @blog.user == current_user %>
     <%= link_to "back to home", blogs_path, class: "btn btn-sm btn-info" %> | <%= link_to "Edit", edit_blog_path, class: "btn btn-sm btn-success" %>
     <% end %>
